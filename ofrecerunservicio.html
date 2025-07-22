@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OfrecerunServicio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --main-color: #09949c;
+      --bg-light: #f9f9f9;
+      --text-color: #333;
+      --bg-dark: #1e1e1e;
+      --text-light: #eaeaea;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: var(--bg-dark);
+        color: var(--text-light);
+      }
+      header {
+        background-color: #0b6f74;
+      }
+      .btn-regresar {
+        background-color: var(--text-light);
+        color: var(--main-color);
+      }
+      .btn-regresar:hover {
+        background-color: #ccecec;
+      }
+      footer {
+        background-color: #2a2a2a;
+        color: #aaa;
+      }
+    }
+    .descarga-app {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.descarga-app h2 {
+  color: var(--main-color);
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.store-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.store-buttons img {
+  height: 55px; /* Igual tamaño para ambos */
+  object-fit: contain;
+  filter: brightness(1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.store-buttons img:hover {
+  transform: scale(1.08);
+  filter: brightness(1.15);
+}
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--bg-light);
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.10s, color 0.10s;
+    }
+header {
+  background-color: var(--main-color);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header img.logo-link {
+  height: 60px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+header img.logo-link:hover {
+  transform: scale(1.1);
+}
+
+    .btn-regresar {
+      background-color: white;
+      color: var(--main-color);
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-regresar:hover {
+      background-color: #e0f7f8;
+    }
+
+    main {
+      text-align: center;
+      padding: 60px 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--main-color);
+      margin-bottom: 20px;
+    }
+
+    p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-color);
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      padding: 20px;
+      background-color: #f2f2f2;
+      color: #666;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    /* --- Estilos para el Carrusel de Servicios --- */
+        .carrusel-servicios {
+            display: flex;
+            overflow-x: auto; /* Permite el desplazamiento horizontal */
+            -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
+            scroll-snap-type: x mandatory; /* Para un scroll que "encaja" en los elementos */
+            gap: 20px; /* Espacio entre las tarjetas */
+            padding: 20px 0;
+            margin: 0 auto;
+            max-width: 1000px; /* Ancho máximo del carrusel */
+            justify-content: flex-start; /* Alinea al inicio si hay espacio */
+        }
+
+        .servicio-card {
+            flex: 0 0 auto; /* No crecer, no encoger, tamaño automático */
+            width: 150px; /* Ancho de cada tarjeta de servicio */
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            scroll-snap-align: start; /* Ayuda al scroll-snap */
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .servicio-card i {
+            font-size: 3em;
+            color: var(--main-color);
+            margin-bottom: 10px;
+        }
+
+        .servicio-card h3 {
+            font-size: 1.1em;
+            color: var(--text-color);
+            margin: 0;
+        }
+       
+  </style>
+</head>
+<body>
+
+  <header>
+  <a href="index1.html" style="margin: 0 auto;">
+    <img src="logo.png" alt="Kóonin Logo" class="logo-link" />
+  </a>
+</header>
+
+
+  <main>
+    <h1>Ofrecer un Servicio</h1>
+    <section class="servicios-destacados">
+            <h2>Servicios Populares</h2>
+            <div class="carrusel-servicios">
+                
+                <div class="servicio-card">
+                    <i class="fas fa-hammer"></i>
+                    <h3>Carpintería</h3>
+                </div>
+                
+                <div class="servicio-card">
+                    <i class="fas fa-dog"></i>
+                    <h3>Cuidador de Perros</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-faucet"></i>
+                    <h3>Plomería</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-paint-roller"></i>
+                    <h3>Pintura</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Cocinero a domicilio</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Soporte IT</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-cut"></i>
+                    <h3>Peluquería</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Jardinería</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-brush"></i>
+                    <h3>Limpieza</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-child"></i>
+                    <h3>Niñera</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Electricista</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-camera"></i>
+                    <h3>Fotografía</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-music"></i>
+                    <h3>Clases de Música</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Entrenador Personal</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Diseño Web</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-stethoscope"></i>
+                    <h3>Enfermería a domicilio</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Clases Particulares</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>Sastre/Costurera</h3>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Fletes y Mudanzas</h3>
+                </div>
+                </div>
+        </section>
+
+  </main>
+<section style="text-align: center; margin-top: 40px;">
+  <h2 style="color: var(--main-color); margin-bottom: 20px;">Descarga nuestra app</h2>
+  <div class="store-buttons">
+    <a href="https://play.google.com/store" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
+    </a>
+    <a href="https://www.apple.com/app-store/" target="_blank">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" />
+    </a>
+  </div>
+</section>
+
+  <footer>
+    &copy; 2025 Kóonin. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Historias de usuarios reales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --main-color: #09949c;
+      --text-color: #333;
+      --bg-light: #f9f9f9;
+      --bg-dark: #1e1e1e;
+      --text-light: #eaeaea;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: var(--bg-light);
+      color: var(--text-color);
+      overflow-x: hidden;
+      opacity: 0;
+      animation: fadeInPage 1s forwards ease;
+    }
+
+    @keyframes fadeInPage {
+      to {
+        opacity: 1;
+      }
+    }
+
+    header {
+      background-color: var(--main-color);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    header img.logo-link {
+      height: 60px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    header img.logo-link:hover {
+      transform: scale(1.1);
+    }
+
+    .btn-back {
+      display: inline-block;
+      background-color: var(--main-color);
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      will-change: transform;
+    }
+
+    .btn-back:hover {
+      background-color: #077a82;
+      box-shadow: 0 4px 10px rgba(6, 106, 110, 0.7);
+      transform: translateY(-3px);
+    }
+
+    .card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      max-width: 900px;
+      margin: 2rem auto;
+      transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card h1 {
+      color: var(--main-color);
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.7s ease;
+    }
+
+    li.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: var(--bg-dark);
+        color: var(--text-light);
+      }
+
+      .btn-back {
+        background-color: var(--text-light);
+        color: var(--main-color);
+      }
+
+      .btn-back:hover {
+        background-color: #ccecec;
+        box-shadow: none;
+        transform: translateY(0);
+      }
+
+      .card {
+        background-color: #2a2a2a;
+        color: var(--text-light);
+      }
+
+      footer {
+        color: #aaa;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="index1.html" style="margin: 0 auto;">
+      <img src="logo.png" alt="Kóonin Logo" class="logo-link" />
+    </a>
+  </header>
+  <div class="card" id="storyCard">
+    <h1 id="title">Historias de Usuarios Reales</h1>
+    <ul id="tips-list">
+      <li>💬 <strong>Nuestros usuarios son personas reales</strong> que han transformado su día a día gracias a la
+        posibilidad de ofrecer o encontrar servicios profesionales cerca de ellos.</li>
+      <li>📸 <strong>Desde emprendedores que iniciaron su primer negocio</strong> hasta expertos que ahora llegan a más
+        clientes sin intermediarios, sus experiencias nos inspiran a seguir creando una comunidad más conectada y
+        solidaria.</li>
+      <li>🌟 <strong>En un mundo donde la confianza y la cercanía son clave</strong>, Kóonin se ha convertido en un
+        puente que une a personas con talentos reales y quienes los necesitan. Más que una app, es una comunidad en
+        crecimiento donde cada experiencia cuenta.</li>
+      <li>🚀 <strong>¿Y tú, estás listo para escribir tu propia historia?</strong> Únete a Kóonin y descubre lo que
+        puedes lograr cuando conectas con tu comunidad.</li>
+    </ul>
+  </div>
+
+  <footer>
+    &copy; 2025 Kóonin. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.getElementById("storyCard").classList.add("visible");
+    });
+
+    const listItems = document.querySelectorAll("#tips-list li");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add("visible");
+          }, Array.from(listItems).indexOf(entry.target) * 200); // efecto cascada
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    listItems.forEach(item => observer.observe(item));
+  </script>
+
+</body>
+
+</html>
