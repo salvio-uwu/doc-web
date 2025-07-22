@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consejos para destacar tu servicio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --main-color: #09949c;
+            --text-color: #333;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1e1e1e;
+            --text-light: #eaeaea;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: var(--main-color);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header img.logo-link {
+            height: 60px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        header img.logo-link:hover {
+            transform: scale(1.1);
+        }
+
+        .btn-back {
+            display: inline-block;
+            background-color: var(--main-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: #077a82;
+        }
+
+        .blog-card-style {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            max-width: 900px;
+            margin: 2rem auto;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .blog-card-style.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .blog-card-style:hover {
+            transform: translateY(-8px);
+        }
+
+        .blog-card-style h2 {
+            color: var(--main-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .blog-card-style ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .blog-card-style li {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.7s ease;
+        }
+
+        .blog-card-style li.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: var(--bg-dark);
+                color: var(--text-light);
+            }
+
+            .btn-back {
+                background-color: var(--text-light);
+                color: var(--main-color);
+            }
+
+            .blog-card-style {
+                background-color: #2a2a2a;
+                color: var(--text-light);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index1.html" style="margin: 0 auto;">
+            <img src="logo.png" alt="Kóonin Logo" class="logo-link" />
+        </a>
+    </header>
+
+    <div class="blog-card-style" id="tipsCard">
+        <h2>Consejos para destacar tu servicio</h2>
+        <ul id="tipsList">
+            <li>🔍 Revisa perfiles completos: Asegúrate de que el profesional tenga una descripción clara, imágenes de
+                trabajos anteriores y una lista de servicios detallada.</li>
+            <li>🌟 Lee reseñas de otros usuarios: Las opiniones de personas que ya han contratado ese servicio te darán
+                una idea real de la calidad, puntualidad y trato del proveedor.</li>
+            <li>📞 Contacta antes de contratar: Aprovecha la mensajería para resolver dudas, preguntar por precios,
+                tiempos de entrega o métodos de pago. La comunicación clara es clave.</li>
+            <li>🛡️ Desconfía de precios demasiado bajos: Si algo parece demasiado bueno para ser verdad, tal vez lo
+                sea. Compara entre diferentes opciones antes de decidir.</li>
+            <li>🗓️ Agenda en horarios y lugares seguros: Siempre que sea posible, acuerda la prestación del servicio en
+                espacios conocidos o bien recomendados, y durante el día.</li>
+            <li>✅ Confía en tu intuición: Si algo no te inspira confianza, busca otras opciones. En Kóonin hay muchos
+                profesionales disponibles.</li>
+        </ul>
+    </div>
+
+    <footer>
+        &copy; 2025 Kóonin. Todos los derechos reservados.
+    </footer>
+
+    <script>
+        // Mostrar tarjeta principal con animación
+        window.addEventListener("load", () => {
+            document.getElementById("tipsCard").classList.add("visible");
+        });
+
+        // Animación en cada item al hacer scroll
+        const listItems = document.querySelectorAll("#tipsList li");
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        listItems.forEach(item => observer.observe(item));
+    </script>
+
+</body>
+
+</html>

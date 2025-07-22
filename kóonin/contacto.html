@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f4ef;
+      color: #333;
+    }
+
+    header {
+      background-color: #09949c;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    header img {
+      height: 60px;
+      cursor: pointer;
+    }
+
+    .contacto {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .contacto h2 {
+      font-size: 2rem;
+      color: #09949c;
+      margin-bottom: 10px;
+    }
+
+    .contacto p {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Nunito', sans-serif;
+      box-sizing: border-box;
+      resize: vertical;
+      transition: border-color 0.3s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #09949c;
+      outline: none;
+    }
+
+    .btn-enviar {
+      background-color: #09949c;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-enviar:hover {
+      background-color: #077e86;
+    }
+
+    #respuesta {
+      color: green;
+      display: none;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+      color: #555;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index1.html"><img src="logo.png" alt="Kóonin Logo"></a>
+  </header>
+
+  <section class="contacto">
+    <h2>Contáctanos</h2>
+    <p>¿Tienes dudas o sugerencias? Escríbenos y te responderemos pronto.</p>
+
+    <form class="contact-form" action="https://formspree.io/f/abcde123" method="POST">
+      <div class="form-group">
+        <input type="text" name="nombre" placeholder="Nombre completo" required />
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Correo electrónico" required />
+      </div>
+      <div class="form-group">
+        <textarea name="mensaje" rows="5" placeholder="Tu mensaje..." required></textarea>
+      </div>
+      <button type="submit" class="btn-enviar">Enviar mensaje</button>
+      <p id="respuesta">¡Mensaje enviado con éxito!</p>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Kóonin. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    document.querySelector('.contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const data = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          document.getElementById('respuesta').style.display = 'block';
+          form.reset();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
